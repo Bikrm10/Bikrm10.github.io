@@ -49,6 +49,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            display: none;
         }
         /* CSS for social media icons */
         .social-icon {
@@ -112,4 +113,20 @@
     </footer>
     
 </body>
+<script>
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            document.getElementById("footer").style.display = "block";
+        } else {
+            // Scrolling up
+            document.getElementById("footer").style.display = "none";
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+</script>
+
 </html>
